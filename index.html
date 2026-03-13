@@ -1,285 +1,276 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Atendimento · Preto & Verde Fluorescente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        body {
+            min-height: 100vh;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
 
-<title>Agência de Marketing Digital Maximiza</title>
+        .portal-card {
+            max-width: 1200px;
+            width: 100%;
+            background-color: #0a0a0a;
+            border: 3px solid #00ff80;
+            border-radius: 4rem 4rem 3rem 3rem;
+            padding: 3rem 3rem 4rem 3rem;
+            box-shadow: 0 25px 50px rgba(0, 255, 128, 0.2), 0 0 0 2px #00ff8033 inset;
+        }
 
-<style>
+        /* Título Portal de Atendimento (mantido) */
+        .titulo {
+            text-align: center;
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #00ff80;
+            text-transform: uppercase;
+            word-break: break-word;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 8px #00ff80, 0 0 20px #00ff804d;
+            border-bottom: 4px dashed #00ff80;
+            padding-bottom: 1.8rem;
+        }
 
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#f5f7fa;
-color:#333;
-}
+        /* texto informativo (provedor de fibra) – sem nome de empresa */
+        .texto-institucional {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #e0ffe6;
+            background: rgba(0, 255, 128, 0.05);
+            border: 2px solid #00ff80;
+            border-radius: 3rem;
+            padding: 2rem 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 0 25px rgba(0, 255, 128, 0.3);
+            backdrop-filter: blur(2px);
+        }
 
-header{
-background:#1a73e8;
-color:white;
-padding:40px;
-text-align:center;
-}
+        .texto-institucional p {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-nav{
-background:#111;
-padding:15px;
-text-align:center;
-}
+        .texto-institucional strong {
+            color: #00ff80;
+            font-weight: 600;
+            text-shadow: 0 0 5px #00ff80;
+        }
 
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-}
+        /* botões em linha */
+        .botoes-linha {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem 2.5rem;
+            margin-top: 1rem;
+        }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
+        .btn-atendimento {
+            background: transparent;
+            border: 4px solid #00ff80;
+            border-radius: 3rem;
+            padding: 1.8rem 2.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #00ff80;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 0 15px #00ff8026, inset 0 0 12px #00ff801a;
+            line-height: 1;
+            text-align: center;
+            flex: 0 1 auto;
+            min-width: 220px;
+        }
 
-section{
-background:white;
-margin-bottom:30px;
-padding:30px;
-border-radius:8px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-}
+        .btn-atendimento span {
+            font-size: 2.8rem;
+            filter: drop-shadow(0 0 8px #00ff80);
+        }
 
-h2{
-color:#1a73e8;
-}
+        .btn-atendimento:hover {
+            background-color: #00ff80;
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 0 35px #00ff80, 0 0 70px #00ff80cc;
+            transform: scale(1.05);
+        }
 
-ul{
-line-height:1.8;
-}
+        .btn-atendimento:hover span {
+            filter: none;
+        }
 
-footer{
-background:#111;
-color:#ccc;
-text-align:center;
-padding:25px;
-margin-top:40px;
-}
+        .btn-whatsapp span {
+            font-size: 3rem;
+        }
 
-.hero{
-font-size:18px;
-max-width:700px;
-margin:auto;
-}
+        .btn-atendimento:focus-visible {
+            outline: 4px solid white;
+            outline-offset: 4px;
+            background-color: #00ff80;
+            color: black;
+        }
 
-</style>
+        /* responsividade */
+        @media (max-width: 1000px) {
+            .titulo {
+                font-size: 3.2rem;
+            }
+            .texto-institucional {
+                font-size: 2rem;
+                padding: 1.8rem 2rem;
+            }
+        }
 
+        @media (max-width: 900px) {
+            .portal-card {
+                padding: 2.5rem 2rem;
+            }
+            .btn-atendimento {
+                font-size: 2.2rem;
+                padding: 1.5rem 2.2rem;
+            }
+            .texto-institucional {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .botoes-linha {
+                gap: 1.5rem;
+            }
+            .btn-atendimento {
+                font-size: 2rem;
+                padding: 1.2rem 1.8rem;
+                min-width: 190px;
+            }
+            .texto-institucional {
+                font-size: 1.6rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .titulo {
+                font-size: 2.5rem;
+            }
+            .texto-institucional {
+                font-size: 1.4rem;
+                border-radius: 2rem;
+            }
+            .btn-atendimento {
+                font-size: 1.8rem;
+                padding: 1rem 1.2rem;
+                gap: 0.8rem;
+            }
+            .btn-atendimento span {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-
-<header>
-
-<h1>AGENCIA DE MARKETING DIGITAL MAXIMIZA LTDA</h1>
-
-<p class="hero">
-Especialistas em gestão de campanhas digitais, publicidade online e estratégias de crescimento para empresas.
-</p>
-
-</header>
-
-
-<nav>
-
-<a href="#inicio">Início</a>
-<a href="#empresa">Empresa</a>
-<a href="#servicos">Serviços</a>
-<a href="#privacidade">Privacidade</a>
-<a href="#termos">Termos</a>
-<a href="#contato">Contato</a>
-
-</nav>
-
-
-<div class="container">
-
-
-<section id="inicio">
-
-<h2>Sobre Nossa Agência</h2>
-
-<p>
-
-A Agência de Marketing Digital Maximiza atua na criação e gestão de campanhas
-de publicidade online, estratégias digitais e otimização de resultados para empresas.
-
-</p>
-
-<p>
-
-Nosso foco é ajudar negócios a aumentar sua visibilidade na internet
-por meio de plataformas de publicidade digital e estratégias de marketing.
-
-</p>
-
-</section>
-
-
-<section id="empresa">
-
-<h2>Informações da Empresa</h2>
-
-<p>
-
-<strong>Razão Social</strong><br>
-AGENCIA DE MARKETING DIGITAL MAXIMIZA LTDA
-
-</p>
-
-<p>
-
-<strong>CNPJ</strong><br>
-49.446.270/0001-10
-
-</p>
-
-<p>
-
-<strong>Endereço</strong><br>
-R GRUPIARA, 23<br>
-BONFIM<br>
-BELO HORIZONTE - MG<br>
-CEP 31210-410<br>
-Brasil
-
-</p>
-
-</section>
-
-
-<section id="servicos">
-
-<h2>Nossos Serviços</h2>
-
-<ul>
-
-<li>Gestão de campanhas Google Ads</li>
-<li>Publicidade online</li>
-<li>Consultoria em marketing digital</li>
-<li>Estratégias de tráfego pago</li>
-<li>Otimização de conversão</li>
-<li>Planejamento de campanhas digitais</li>
-
-</ul>
-
-</section>
-
-
-<section id="privacidade">
-
-<h2>Política de Privacidade</h2>
-
-<p>
-
-A Agência de Marketing Digital Maximiza respeita a privacidade dos visitantes deste site
-e está comprometida com a proteção de dados pessoais conforme a legislação aplicável.
-
-</p>
-
-<p>
-
-Informações eventualmente fornecidas pelos usuários podem ser utilizadas apenas
-para fins de comunicação, atendimento ou prestação de serviços.
-
-</p>
-
-<p>
-
-A empresa não vende, compartilha ou distribui informações pessoais sem autorização,
-exceto quando exigido por lei.
-
-</p>
-
-<p>
-
-Medidas de segurança são aplicadas para proteger os dados contra acesso não autorizado.
-
-</p>
-
-</section>
-
-
-<section id="termos">
-
-<h2>Termos de Uso</h2>
-
-<p>
-
-O uso deste site implica na aceitação dos termos e condições aqui descritos.
-
-</p>
-
-<p>
-
-Os conteúdos apresentados neste site possuem caráter informativo
-sobre os serviços oferecidos pela empresa.
-
-</p>
-
-<p>
-
-A empresa reserva-se o direito de atualizar ou modificar
-as informações do site a qualquer momento sem aviso prévio.
-
-</p>
-
-</section>
-
-
-<section id="contato">
-
-<h2>Contato</h2>
-
-<p>
-
-Para mais informações sobre serviços ou parcerias comerciais,
-entre em contato com a empresa.
-
-</p>
-
-<p>
-
-<strong>Empresa:</strong><br>
-AGENCIA DE MARKETING DIGITAL MAXIMIZA LTDA
-
-</p>
-
-<p>
-
-<strong>Endereço:</strong><br>
-R GRUPIARA, 23<br>
-BONFIM<br>
-BELO HORIZONTE - MG<br>
-31210-410<br>
-Brasil
-
-</p>
-
-</section>
-
-
-</div>
-
-
-<footer>
-
-<p>© 2026 AGENCIA DE MARKETING DIGITAL MAXIMIZA LTDA</p>
-
-<p>CNPJ: 49.446.270/0001-10</p>
-
-</footer>
-
-
+    <div class="portal-card">
+        <!-- Título reinserido no início -->
+        <div class="titulo">Portal de Atendimento</div>
+
+        <!-- Texto institucional (fibra óptica, sem menção a empresa) -->
+        <div class="texto-institucional">
+            <p>
+                ⚡ <strong>Fibra óptica de alta velocidade</strong> · conexão estável e simétrica · 
+                atendimento 100% digital · suporte técnico especializado · planos sob medida 
+                para sua casa ou negócio · <strong>tecnologia de ponta</strong> com a melhor experiência em fibra.
+            </p>
+        </div>
+
+        <!-- Botões na ordem: Atendimento, Whatsapp, Chat, Dúvidas. Todos enviam para o WhatsApp com mensagens personalizadas -->
+        <div class="botoes-linha">
+            <!-- 1º Atendimento -->
+            <a href="#" class="btn-atendimento" id="btn-atendimento" role="button" tabindex="0">
+                <span>👤</span> Atendimento
+            </a>
+
+            <!-- 2º Whatsapp -->
+            <a href="#" class="btn-atendimento btn-whatsapp" id="btn-whatsapp" role="button" tabindex="0">
+                <span>📱</span> Whatsapp
+            </a>
+
+            <!-- 3º Chat -->
+            <a href="#" class="btn-atendimento" id="btn-chat" role="button" tabindex="0">
+                <span>💬</span> Chat
+            </a>
+
+            <!-- 4º Dúvidas -->
+            <a href="#" class="btn-atendimento" id="btn-duvidas" role="button" tabindex="0">
+                <span>❓</span> Dúvidas
+            </a>
+        </div>
+    </div>
+
+    <!-- Script que faz TODOS os botões redirecionarem para o WhatsApp com mensagens específicas -->
+    <script>
+        (function() {
+            // Número de WhatsApp (formatado internacionalmente sem o +)
+            const numeroWhatsApp = '5511948772959';  // 11 94877-2959 -> 5511948772959
+            
+            // Mensagens personalizadas para cada botão
+            const mensagens = {
+                'btn-atendimento': 'Olá! Gostaria de falar com o setor de Atendimento.',
+                'btn-whatsapp': 'Olá! Vim pelo WhatsApp do portal.',
+                'btn-chat': 'Olá! Gostaria de atendimento via Chat.',
+                'btn-duvidas': 'Olá! Tenho algumas dúvidas sobre os serviços.'
+            };
+
+            // Seleciona todos os botões
+            const botoes = document.querySelectorAll('.btn-atendimento');
+            
+            botoes.forEach(btn => {
+                btn.addEventListener('click', (event) => {
+                    event.preventDefault();  // impede o href vazio
+                    
+                    // Pega o ID do botão clicado
+                    const id = btn.id;
+                    
+                    // Define a mensagem padrão caso não encontre o ID
+                    let mensagem = 'Olá! Gostaria de mais informações.';
+                    
+                    if (id && mensagens[id]) {
+                        mensagem = mensagens[id];
+                    }
+                    
+                    // Codifica a mensagem para URL
+                    const textoCodificado = encodeURIComponent(mensagem);
+                    
+                    // Cria o link do WhatsApp
+                    const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`;
+                    
+                    // Redireciona a página para o link do WhatsApp
+                    window.location.href = linkWhatsApp;
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
